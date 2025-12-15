@@ -6,6 +6,7 @@ import pandas as pd
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
+from webdriver_manager.chrome import ChromeDriverManager
 
 # 记录开始时间
 start_time = time.time()
@@ -18,7 +19,7 @@ url_list = df.iloc[:, 1].tolist()
 print(url_list)
 
 # chromedriver 路径
-chromedriver_path = r"chromedriver.exe"
+# chromedriver_path = r"chromedriver.exe"
 
 # 配置浏览器选项
 options = Options()
@@ -26,7 +27,7 @@ options.add_argument("--start-maximized")
 options.add_argument('--blink-settings=imagesEnabled=false')
 
 # 创建 WebDriver 服务
-service = Service(chromedriver_path)
+service = Service(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service, options=options)
 
 # 打开亚马逊首页

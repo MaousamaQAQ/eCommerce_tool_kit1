@@ -4,7 +4,6 @@ Category BSR rank, 7-day BSR growth, 7-day BSR growth rate, parent-level sales v
 Necessary files:
 The source file is price.py
 The virtual environment is venv
-The browser driver is chromedriver.exe
 The credentials file is Ap.txt
 The ASIN configuration folder is the Asin folder
 The output folder is download
@@ -13,7 +12,6 @@ The folder containing the executable file is dist (operation staff only need to 
 The necessary files in the dist folder include:
 Asin folder - Stores ASIN lists for 5 marketplaces. Each file is named as MarketplaceAsin.xlsx (if you want to check the IT marketplace, simply add, replace, or delete ASINs in the first column of ITAsin.xlsx)
 Ap.txt - Stores SellerSprite credentials, with the first line being the account and the second line being the password
-chromedriver.exe - Used to access the webpage (no manual operation required)
 price.exe - The executable file. Double-click to run. A black window (terminal) will appear first, then after about 10 seconds, a UI window will pop up for marketplace selection (multiple marketplaces can be selected at once). Note: Do not enable headless mode, or SellerSprite will detect it and the crawler will fail to retrieve data.
 download folder - Used to store program output files, named as Country_Date_Time.csv
 

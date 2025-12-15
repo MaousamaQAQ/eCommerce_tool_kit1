@@ -15,6 +15,7 @@ import os
 import pyperclip
 from selenium.webdriver.common.keys import Keys
 import platform
+from webdriver_manager.chrome import ChromeDriverManager
 
 
 # ------------------------UI------------------------
@@ -91,7 +92,7 @@ def CountryAsin(clist):
 asin_dict = CountryAsin(country_list)
 
 # chromedriver 路径
-chromedriver_path = r"chromedriver.exe"
+# chromedriver_path = r"chromedriver.exe"
 
 # 配置浏览器选项
 options = Options()
@@ -107,7 +108,7 @@ prefs = {
 }
 options.add_experimental_option("prefs", prefs)
 # 创建 WebDriver 服务
-service = Service(chromedriver_path)
+service = Service(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service, options=options)
 
 # 打开卖家精灵，自动跳转登陆页面
@@ -375,7 +376,10 @@ def exeByCountry(country):
             break
 
         # 调用getData()抓取数据
-        getData()
+        try:
+            getData()
+        except Exception as e:
+            print(f"第 {page} 页解析失败，跳过该页：{e}")
         page += 1  # 翻页
 
     data = {

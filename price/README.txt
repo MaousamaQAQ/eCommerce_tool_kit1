@@ -5,12 +5,10 @@ Necessary files:
 The source file is crawler.py
 The virtual environment is venv
 The target webpage file is link.xlsx
-The browser driver is chromedriver.exe
 
 The folder containing the executable file is dist (operation staff only need to focus on this folder)
 The necessary files in the dist folder include:
 link.xlsx - Used to store the links to be crawled. You only need to modify the ASINs in the first column; the second column contains a formula that automatically generates the links. Please make sure the number of links matches the number of rows in the ASIN column (empty or incorrect values in the ASIN column will not cause errors; the corresponding rows in the exported file will simply be empty).
-chromedriver.exe - Used to access webpages (no manual operation required)
 crawler.exe - Double-click to run. After launch, a black window (terminal) will appear first, followed by the browser opening automatically. You must then perform a manual operation in the browser (initialisation): change the postcode to an Italian postcode (no login required). Sometimes the postcode does not refresh due to network issues; simply refresh the page and re-enter the postcode. After confirming the postcode is updated, return to the terminal and press Enter to proceed. The crawler will then run automatically.
 
 The output file will be saved in the same folder and named price.csv (if a price.csv already exists, the new file will overwrite the old one).
